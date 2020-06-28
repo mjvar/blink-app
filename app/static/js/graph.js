@@ -129,7 +129,9 @@ function hide(selected) {
 }
 
 function sendMessage() {
-	alert("Yesterday, you took 12 breaks and worked over a span of 06 hours and 24 minutes. Today, we recommend you take your first break in 00 hours and 52 minutes. Research suggests you should take small, 5-15 minute breaks, and occasional longer, 20-30 minute breaks. Based on the data we've collected from you, you are the most productive around 15:57. You are the least productive around 20:13.")
+	setTimeout(sendMessage, 30000)
+	alert("You've been in front of your screen for 2 consecutive hours. Now would be a good time to take a 10-minute screen break!")
 }
 
 setTimeout(updateData, 1000);
+sendMessage()
