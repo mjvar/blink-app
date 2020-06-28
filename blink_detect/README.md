@@ -21,6 +21,5 @@ This project requires the following tools:
 
 Run the file with the below command line argument:
 
-```
-```
+`python3 blink_detect.py --shape-predictor shape_predictor_68_face_landmarks.dat --webcam 1`
 
