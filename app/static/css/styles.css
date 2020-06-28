@@ -1,0 +1,41 @@
+body {
+	font-family: 'Lora';
+}
+
+#graph-div {
+	width: 70%;
+	margin-top: 5%;
+	background: #23363F;
+	border-radius: 2%;
+	margin-left: 14%;
+	
+}
+
+.navbar {
+	height: 10%;
+}
+
+.menu-buttons {
+	text-align: right;
+}
+
+.hidden {
+	visibility: hidden;
+	height: 0;
+}
+
+img { 
+	/*height: 15%;
+	width: 15%;
+	margin: 0; 
+	padding: 0*/
+	height: 5%;
+	width: 5%;
+}
+
+h1 {
+	/*position: relative;*/
+	/*text-align: center;*/
+	margin-left: -40%;
+	margin-right: 40%;
+	color: #145778;
