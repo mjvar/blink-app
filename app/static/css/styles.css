@@ -24,6 +24,12 @@ body {
 	height: 0;
 }
 
+iframe {
+	width: 70%;
+	margin-top: 5%;
+	margin-left: 14%;
+}
+
 img { 
 	/*height: 15%;
 	width: 15%;
