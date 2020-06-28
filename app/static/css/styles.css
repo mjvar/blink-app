@@ -11,6 +11,14 @@ body {
 	
 }
 
+#text-div {
+	padding: 70px 0;
+	margin: auto;
+	width: 70%;
+	border-radius: 2%;
+	text-align: center;
+}
+
 .navbar {
 	height: 10%;
 }
