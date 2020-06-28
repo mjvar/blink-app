@@ -128,4 +128,8 @@ function hide(selected) {
 	buttons[selected].classList.add("active")
 }
 
+function sendMessage() {
+	alert("Yesterday, you took 12 breaks and worked over a span of 06 hours and 24 minutes. Today, we recommend you take your first break in 00 hours and 52 minutes. Research suggests you should take small, 5-15 minute breaks, and occasional longer, 20-30 minute breaks. Based on the data we've collected from you, you are the most productive around 15:57. You are the least productive around 20:13.")
+}
+
 setTimeout(updateData, 1000);
