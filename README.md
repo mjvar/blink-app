@@ -1,102 +1,38 @@
-# Introduction
+# Blink
 
-This is a hackathon boilerplate for new Flask web applications created by [Major League Hacking](https://github.com/MLH). It is for hackers looking to get started quickly on a new hackathon project using the Flask microframework.
+The future of wellness, powered by computer vision and recommendation engines.
 
-- [Installation Guide](#installation-guide) - How to get started with a new Flask app
-- [User Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/USER_GUIDE.md) - How to develop apps created with this starter project
-- [Contributing Guide](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONTRIBUTING.md) - How to contribute to the project
+## The Problem
+The COVID-19 pandemic has left nearly all of us working remotely. This means that we’re spending more time than ever in front of computer screens. Research shows that this can lead to increased eye strain and fatigue. As students who will be taking online classes for extended hours in the near future, we saw a chance to solve this problem with data and optimize our daily grinds. 
 
-# <a name='installation-guide'>Installation Guide</a>
+## The Solution
+To tackle the problem of screen fatigue, we combined the computer vision technology of OpenCV with the usability of a website app. With a Flask backend connecting the Python computer vision app with the user-friendly front end, Blink was born.
 
-This project requires the following tools:
+Blink is a data-driven wellness and productivity platform that tracks your eye movements and creates intelligent recommendations about optimal times for work and rest. Blink tracks you while you work to see how drowsy you get and how often you leave your screen to rest. If your eyes are getting strained, or if you're not taking enough screen breaks, Blink will send a gentle reminder to your browser notifications.
 
-- Python - The programming language used by Flask.
-- PostgreSQL - A relational database system.
-- Virtualenv - A tool for creating isolated Python environments.
+Blink’s landing page visualizes the user’s eye aspect ratio, which is a measure of their alertness. This graph updates live, showing the user how their data is used in recommendations. Your anonymous eye strain data is constantly stored in our database, which means that Blink is also able to update live and provide notifications when they are most necessary.
 
-To get started, install Python and Postgres on your local computer if you don't have them already. A simple way for Mac OS X users to install Postgres is using [Postgres.app](https://postgresapp.com/). You can optionally use another database system instead of Postgres, like [SQLite](http://flask.pocoo.org/docs/1.0/patterns/sqlite3/).
+With a menu in the top right corner, you can navigate to a video with overlaid information displaying what Blink collects as data. Since Blink uses facial recognition, this video helps you to understand how data is collected from them, and how it relates to the graph displayed on the landing page.
 
-## Getting Started
+Lastly, the Recommendation page is where Blink. These recommendations are bolstered by our system of notifications, allowing them to take breaks at optimal times, coming back to their online work well rested, happier, and more productive. 
 
-**Step 1. Clone the code into a fresh folder**
+# Technical Details & Installation
+Blink has four main components: a frontend in vanilla Javascript that heavily leverages charts.js; a script in OpenCV that conducts eye tracking; a robust backend in Flask with detailed request architectures for both the OpenCV script (to receive eye and face tracking data) and the frontend (to load data into charts.js visualizations); and a database in PostgreSQL.
 
-```
-$ git clone https://github.com/MLH/mlh-hackathon-flask-starter.git
-$ cd mlh-hackathon-flask-starter
-```
+The frontend and UI are simple but intuitive. The charts.js data visualizations update in real time based on requests to Flask; the live updates are represented with smooth and elegant animations.
 
-**Step 2. Create a Virtual Environment and install Dependencies.**
+The OpenCV script excellently tracks eye fatigue by calculating eye aspect ratio (EAR) and detecting when the user takes breaks. The script persistently tracks EAR, as well as noting when users leave the screen for a prolonged period of time to track breaks. These data points help Blink determine when a user hasn't taken a break for too long, or when their eyes are beginning to strain.
 
-Create a new Virtual Environment for the project and activate it. If you don't have the `virtualenv` command yet, you can find installation [instructions here](https://virtualenv.readthedocs.io/en/latest/). Learn more about [Virtual Environments](http://flask.pocoo.org/docs/1.0/installation/#virtual-environments).
+The Flask backend communicates with the frontend, the OpenCV tracking script, and the PostgreSQL database. It is able to simultaneously and smoothly process requests from all three components.
 
-```
-$ virtualenv venv
-$ source venv/bin/activate
-```
+## Requirements
+This is a prototype build, so users will need to install dependencies on their machine. Future builds will be hosted remotely so that users can access them with a click of a link.
 
-Next, we need to install the project dependencies, which are listed in `requirements.txt`.
+Specific installation instructions for the Flask server can be found in `docs/USER_GUIDE.md`.
 
-```
-(venv) $ pip install -r requirements.txt
-```
+* Python 3
+* Flask
+* virtualenv
+* Postgres.app or equivalent PostgreSQL client
 
-**Step 3: Create an app on GitHub**
-
-Head over to [GitHub OAuth apps](https://github.com/settings/developers) and create a new OAuth app. Name it what you like but you'll need to specify a callback URL, which should be something like:
-
-```
-http://localhost:5000/auth/callback/github
-```
-
-The default port for Flask apps is `5000`, but you may need to update this if your setup uses a different port or if you're hosting your app somewhere besides your local machine.
-
-**Step 4: Setup your database**
-
-You need to be able to connect to a database either on your own computer (locally) or through a hosted database. You can [install Postgres locally](http://www.postgresqltutorial.com/install-postgresql/) and [connect to it](http://www.postgresqltutorial.com/connect-to-postgresql-database/) to provide the database for your app.
-
-You will need to know the connection URL for your application which we will call `DATABASE_URL` in your environment variables. Here is an example:
-
-```
-postgresql://localhost:5432/mlh-hackathon-starter-flask
-```
-
-**Step 5: Update environment variables and run the Server.**
-
-Create a new file named `.env` by duplicating `.env.example`. Update the new file with the GitHub credentials. It should look similar to this:
-
-```
-# .env file
-DATABASE_URL="[INSERT_DATABASE_URL]"
-GITHUB_CLIENT_ID="[INSERT_CLIENT_ID]"
-GITHUB_CLIENT_SECRET="[INSERT_CLIENT_SECRET]"
-```
-
-You replace the GitHub credentials here and update the database URL. Learn more about the required [Environment Variables here](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/USER_GUIDE.md#environment-variables).
-
-Now we're ready to start our server which is as simple as:
-
-```
-(venv) $ flask run
-```
-
-Open http://localhost:5000 to view it in your browser.
-
-The app will automatically reload if you make changes to the code.
-You will see the build errors and warnings in the console.
-
-# What's Included?
-
-- [Flask](http://flask.pocoo.org/) - A microframework for Python web applications
-- [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - A Flask extension for making modular applications
-- [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - A Flask extension that adds ORM support for your data models.
-- [Werkzeug](http://werkzeug.pocoo.org/) - A Flask framework that implements WSGI for handling requests.
-- [Bootstrap 4](https://getbootstrap.com/) - An open source design system for HTML, CSS, and JS.
-- [Jinja2](http://jinja.pocoo.org/docs/2.10/) - A templating language for Python, used by Flask.
-
-# Code of Conduct
-
-We enforce a Code of Conduct for all maintainers and contributors of this Guide. Read more in [CONDUCT.md](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/docs/CONDUCT.md).
-
-# License
-
-The Hackathon Starter Kit is open source software [licensed as MIT](https://github.com/MLH/mlh-hackathon-flask-starter/blob/master/LICENSE.md).
+Other dependencies can be installed with `(venv) $ pip install -r requirements.txt` with instructions found in `docs/USER_GUIDE.md`.
