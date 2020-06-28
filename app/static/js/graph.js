@@ -128,21 +128,4 @@ function hide(selected) {
 	buttons[selected].classList.add("active")
 }
 
-
-
-// These 2 functions make the text input work
-// They will be removed later
-function getData() {
-	var searchBox = document.getElementById("input")
-	updateData()
-	searchBox.value = ""
-}
-
-document.addEventListener('keypress', function (e) {
-	if (e.key === 'Enter') {
-		// code for enter
-  		getData()
-	}
-});
-
 setTimeout(updateData, 1000);
