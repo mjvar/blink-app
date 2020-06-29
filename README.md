@@ -1,6 +1,6 @@
 # Blink
 
-The future of wellness, powered by computer vision and recommendation engines.
+A wellness and productivity app powered by computer vision and recommendation engines.
 
 Developed during the MLH Data Day Grind 2020 Hackathon. For a video demo of the project, see our [Devpost page](https://devpost.com/software/blink-3a5n80).
 
