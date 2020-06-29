@@ -2,6 +2,8 @@
 
 The future of wellness, powered by computer vision and recommendation engines.
 
+Developed as a pa
+
 ## The Problem
 The COVID-19 pandemic has left nearly all of us working remotely. This means that we’re spending more time than ever in front of computer screens. Research shows that this can lead to increased eye strain and fatigue. As students who will be taking online classes for extended hours in the near future, we saw a chance to solve this problem with data and optimize our daily grinds. 
 
@@ -18,12 +20,6 @@ Lastly, the Recommendation page is where Blink. These recommendations are bolste
 
 # Technical Details & Installation
 Blink has four main components: a frontend in vanilla Javascript that heavily leverages charts.js; a script in OpenCV that conducts eye tracking; a robust backend in Flask with detailed request architectures for both the OpenCV script (to receive eye and face tracking data) and the frontend (to load data into charts.js visualizations); and a database in PostgreSQL.
-
-The frontend and UI are simple but intuitive. The charts.js data visualizations update in real time based on requests to Flask; the live updates are represented with smooth and elegant animations.
-
-The OpenCV script excellently tracks eye fatigue by calculating eye aspect ratio (EAR) and detecting when the user takes breaks. The script persistently tracks EAR, as well as noting when users leave the screen for a prolonged period of time to track breaks. These data points help Blink determine when a user hasn't taken a break for too long, or when their eyes are beginning to strain.
-
-The Flask backend communicates with the frontend, the OpenCV tracking script, and the PostgreSQL database. It is able to simultaneously and smoothly process requests from all three components.
 
 ## Requirements
 This is a prototype build, so users will need to install dependencies on their machine. Future builds will be hosted remotely so that users can access them with a click of a link.
