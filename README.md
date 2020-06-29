@@ -2,7 +2,7 @@
 
 The future of wellness, powered by computer vision and recommendation engines.
 
-Developed as a pa
+Developed during the MLH Data Day Grind 2020 Hackathon. For a video demo of the project, see our [Devpost page](https://devpost.com/software/blink-3a5n80).
 
 ## The Problem
 The COVID-19 pandemic has left nearly all of us working remotely. This means that we’re spending more time than ever in front of computer screens. Research shows that this can lead to increased eye strain and fatigue. As students who will be taking online classes for extended hours in the near future, we saw a chance to solve this problem with data and optimize our daily grinds. 
@@ -24,7 +24,7 @@ Blink has four main components: a frontend in vanilla Javascript that heavily le
 ## Requirements
 This is a prototype build, so users will need to install dependencies on their machine. Future builds will be hosted remotely so that users can access them with a click of a link.
 
-Specific installation instructions for the Flask server can be found in `docs/USER_GUIDE.md`.
+Specific installation instructions for Flask and PostgreSQL can be found in `docs/USER_GUIDE.md`. The facial detection script also has its own dependencies, which can be found in `blink_detect/README.md`.
 
 * Python 3
 * Flask
